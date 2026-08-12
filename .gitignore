@@ -16,8 +16,7 @@ env/
 .ipynb_checkpoints/
 
 # Data
-data/external/
-data/processed/
+data/*
 *.csv
 *.parquet
 *.gpickle
