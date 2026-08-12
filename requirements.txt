@@ -1,0 +1,15 @@
+pandas
+numpy
+networkx
+scikit-learn
+lightgbm
+fastapi
+uvicorn
+geopy
+matplotlib
+pyarrow
+pyyaml
+python-dotenv
+loguru
+tqdm
+jupyter
