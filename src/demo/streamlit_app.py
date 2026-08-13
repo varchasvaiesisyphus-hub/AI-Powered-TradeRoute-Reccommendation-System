@@ -177,6 +177,8 @@ if run_button:
     colors = ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd",
               "#8c564b", "#e377c2", "#7f7f7f", "#bcbd22", "#17becf"]
 
+    dash_styles = ["solid", "dash", "dot", "dashdot", "longdash"]
+
     for i, r in enumerate(recommendations):
         coords = r["coordinates"]
         lats = [c["latitude"] for c in coords]
@@ -186,11 +188,23 @@ if run_button:
         fig.add_trace(go.Scattergeo(
             lon=lons,
             lat=lats,
+
             mode="lines+markers" if is_top else "lines",
-            line=dict(width=3 if is_top else 1, color=colors[i % len(colors)]),
-            marker=dict(size=5 if is_top else 3, color=colors[i % len(colors)]),
+
+            line=dict(
+                width=5 if is_top else 3,
+                color=colors[i % len(colors)],
+                dash=dash_styles[i % len(dash_styles)]
+            ),
+
+            marker=dict(
+                size=6 if is_top else 4,
+                color=colors[i % len(colors)]
+            ),
+
             name=f"Rank {i+1}" + (" (Top pick)" if is_top else ""),
-            opacity=1.0 if is_top else 0.4,
+
+            opacity=1.0 if is_top else 0.85,
         ))
 
     # Mark disrupted ports across the top route

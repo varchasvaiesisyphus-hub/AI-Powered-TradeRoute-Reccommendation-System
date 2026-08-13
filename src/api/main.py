@@ -193,6 +193,7 @@ class RecommendRequest(BaseModel):
 class RouteResult(BaseModel):
     route: list
     port_ids: list
+    coordinates: list
     score: float
     total_distance_nm: float
     num_hops: int
